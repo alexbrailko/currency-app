@@ -1,14 +1,14 @@
 import { Balance } from '@/app/types';
-import { API_BASE_URL, CURRENCY_MAPPINGS } from '@/app/utils/constants';
+import { CURRENCY_MAPPINGS } from '@/app/utils/constants';
 import { NextResponse } from 'next/server';
 
 const getBalances = async (): Promise<Balance[]> => {
   try {
-    const response = await fetch(API_BASE_URL);
+    const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL!);
     const data: Omit<Balance, 'currency'>[] = await response.json();
 
     if (!response.ok) {
-      throw new Error();
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const updatedData = data.map((item) => ({

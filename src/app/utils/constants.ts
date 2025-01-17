@@ -1,6 +1,5 @@
 import { Currency } from '../types';
 
-export const API_BASE_URL = 'https://67862af6f80b78923aa5ace3.mockapi.io/api/v1/balance';
 export const INCORRECT_EMAIL = 'incorrect@email.com';
 export const INCORRECT_PASSWORD = 'incorrect-password';
 export const CURRENCY_MAPPINGS: Currency = {
